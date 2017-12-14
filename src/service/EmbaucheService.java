@@ -6,8 +6,6 @@
 package service;
 
 import bean.Embauche;
-import static bean.Embauche_.salaireMax;
-import static bean.Embauche_.salaireMin;
 import java.util.Date;
 
 /**
