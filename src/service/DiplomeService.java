@@ -23,4 +23,7 @@ public class DiplomeService extends AbstractFacade<Diplome>{
                       return 1;
 
      }
+
+    
+    
 }

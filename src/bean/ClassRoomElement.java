@@ -6,51 +6,52 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
- * @author HP A6
+ * @author Sara
  */
 @Entity
-public class Filiere implements Serializable {
-
+public class ClassRoomElement implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String nom;
-    @OneToMany(mappedBy = "filiere")
-    private List<Laureat> laureats;
-    @OneToOne
-    private Diplome diplome;
+    @ManyToOne
+    private ClassRoom classRoom;
+    @ManyToOne
+    private Laureat laureat;
 
-    public List<Laureat> getLaureats() {
-        if (laureats == null) {
-            laureats = new ArrayList<>();
-        }
-        return laureats;
+    public ClassRoomElement() {
     }
 
-    public void setLaureats(List<Laureat> laureats) {
-        this.laureats = laureats;
+    public ClassRoomElement(Long id) {
+        this.id = id;
+        
     }
 
-    public Diplome getDiplome() {
-        return diplome;
+    public ClassRoom getClassRoom() {
+        return classRoom;
     }
 
-    public void setDiplome(Diplome diplome) {
-        this.diplome = diplome;
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
     }
 
+    public Laureat getLaureat() {
+        return laureat;
+    }
+
+    public void setLaureat(Laureat laureat) {
+        this.laureat = laureat;
+    }
+
+    
     public Long getId() {
         return id;
     }
@@ -66,33 +67,13 @@ public class Filiere implements Serializable {
         return hash;
     }
 
-    public Filiere(String nom) {
-
-        this.nom = nom;
-    }
-
-    public Filiere(Long id) {
-        this.id = id;
-    }
-
-    public Filiere() {
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Filiere)) {
+        if (!(object instanceof ClassRoomElement)) {
             return false;
         }
-        Filiere other = (Filiere) object;
+        ClassRoomElement other = (ClassRoomElement) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -101,7 +82,9 @@ public class Filiere implements Serializable {
 
     @Override
     public String toString() {
-        return "Filiere{" + "id=" + id + ", nom=" + nom + '}';
+        return "ClassRoomElement{" + "id=" + id + '}';
     }
 
+   
+    
 }

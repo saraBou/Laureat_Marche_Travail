@@ -21,4 +21,9 @@ public class FiliereService extends AbstractFacade<Filiere>{
                       return 1;
 
      }
+ 
+    
+    
+    
 }
+

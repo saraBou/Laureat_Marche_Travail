@@ -26,3 +26,26 @@ public class LaureatService extends AbstractFacade<Laureat>{
     
     
 }
+ * @author Sara
+ */
+
+    
+    public class LaureatService extends AbstractFacade<Laureat>{
+     
+    public LaureatService() {
+        super(Laureat.class);
+    }
+     public int ajouter ( String nom,String prenom,String cne,String email, String password){
+              Laureat laureat = new Laureat(nom, prenom,cne, password,  email);
+                      create(laureat);
+                      return 1;
+
+     }
+    
+    
+    
+}
+
+    
+
+
